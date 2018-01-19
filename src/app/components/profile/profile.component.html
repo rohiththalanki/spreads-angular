@@ -1,0 +1,124 @@
+<script src="profile.component.ts"></script>
+
+<h1 style="text-align: center;font-family: 'Lobster', cursive;color: #1d5f96">Profile</h1>
+  <div class="ui container " style="border: 1px solid #f9f9f9; padding:5%;margin: 3%;background-color:#f8f8f8  ">
+
+      <div class="ui grid">
+        <div class="six wide column"><img style="width:60%;" src="./assets/images/download.jpg">
+        </div>
+        <div class="ten wide column">
+          <h1 style="color:#872844;padding-left:4%">{{data.userdet.name}}</h1>
+            <hr>
+          <div class="ui grid" style="margin:2%">
+            <div class="four wide coloumn"><h5><i class="mail icon"></i>{{data.userdet.email}} </h5></div>
+            <div class="four wide coloumn"><h5><i class="fa fa-github fa-1x" aria-hidden="true"></i> {{data.userdet.git}} </h5></div>
+            <div class="four wide coloumn"><h5><i class="fa fa-linkedin-square" aria-hidden="true"></i>{{data.userdet.linkedin}} </h5></div>
+          </div>
+          <div style="margin-top: 2%;padding: 5% ">
+            <h3 style="color:#1d5f96 ">ABOUT:</h3>
+          <p>{{data.userdet.about}}</p>
+          </div>
+        </div>
+      </div>
+    <button class="ui right floated violet button" (click)="editprofile()" >EDIT DETAILS</button>
+    <div class="ui modal">
+      <i class="close icon"></i>
+      <div class="header" style="text-align: center">
+        EDIT YOUR PROFILE HERE
+      </div>
+      <div class="image content">
+        <div class="description">
+          <form class="ui form">
+            <div class="field">
+              <label>Name</label>
+                <div class="field">
+                  <input type="text" name="name" [(ngModel)]="data.userdet.name">
+                </div>
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <div class="field">
+                <input type="email" name="email" [(ngModel)]="data.userdet.email">
+              </div>
+            </div>
+            <div class="two fields">
+              <div class="field">
+                <label>location</label>
+                  <div class="sixteen wide field">
+                    <input type="text" name="place" [(ngModel)]="data.userdet.place">
+                  </div>
+              </div>
+               <div class="field">
+                 <label>phone</label>
+                 <div class="sixteen wide field">
+                    <input type="number" name="phone" [(ngModel)]="data.userdet.phone">
+                  </div>
+               </div>
+            </div>
+
+            <div class="two fields">
+              <div class="field">
+                <label>github URL</label>
+                <div class="sixteen wide field">
+                  <input type="url" name="git" [(ngModel)]="data.userdet.git">
+                </div>
+              </div>
+              <div class="field">
+                <label>linkedin URL</label>
+                <div class="sixteen wide field">
+                  <input type="url" name="linkedin" [(ngModel)]="data.userdet.linkedin">
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>DESCRIPTION(one liner)</label>
+              <div class="sixteen wide field">
+                <input type="text" name="about" [(ngModel)]="data.userdet.about">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="ui black deny button">
+          leave
+        </div>
+        <div class="ui positive right labeled icon button" (click)="save()">
+          Save changes
+          <i class="checkmark icon"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui container" style="margin:5%">
+      <a class="ui teal tag label">Followed Books</a>
+      <div class="ui grid"  style="padding: 5%" >
+        <div class="four wide coloumn" *ngFor="let i of books">
+            <img style="width:70%" src="./assets/images/{{i.picture}}">
+         </div>
+      </div>
+    </div>
+
+    <div class="ui container" style="margin:5%;">
+        <a class="ui teal tag label" style="background-color: #b71f38">Find friends alo using this..</a>
+        <div class="ui cards" style="padding: 5%" *ngFor="let i of data.users">
+          <div class="card">
+            <div class="content">
+              <div class="header">{{i.name}}</div>
+              <div class="description">
+                {{i.about}}
+              </div>
+            </div>
+            <div class="ui bottom attached button" style="background-color:#193c5d;color:white;" (click)="clicked = !clicked">
+              {{clicked ? 'Follow Friend' : 'Followed'}}
+            </div>
+          </div>
+        </div>
+  </div>
+
+
+
+
+
+
+

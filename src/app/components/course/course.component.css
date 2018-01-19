@@ -1,0 +1,13 @@
+
+.ui.segment.container
+{
+  margin: 2%;border: 1px solid #1d5f96; box-shadow: #f9f9f9;border-radius: 0;
+}
+
+
+.ui.button[_ngcontent-c1]{
+  color: #ffffff;
+}
+.ui.button[_ngcontent-c1] {
+  background-color: #233a5b;
+}

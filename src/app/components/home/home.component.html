@@ -1,0 +1,88 @@
+
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+  <a class="item" routerLink="../spread">Spreads</a>
+
+    <a class="item">Company</a>
+    <a class="ui item button" style="background-color: #1d5f96;color:white" routerLink="../login">Log in</a>
+  <a class="ui item button" style="background-color: #e21745;color:white" routerLink="../signup">Sign Up</a>
+</div>
+
+
+<!-- Page Contents -->
+<div class="pusher">
+  <div class="ui vertical masthead center aligned " id="trans">
+
+    <div class="ui container">
+      <div class="ui large secondary inverted pointing menu" style="border: 0">
+        <a class="toc item">
+          <i class="sidebar icon"></i>
+        </a>
+        <a class="" style="padding-top:2%;padding-right:2%;"><img style="background-color: white" class="ui small   image" src="./assets/logo.png"></a>
+
+        <div class="right item">
+          <a class="item" routerLink="../spread">Spreads</a>
+
+          <a class="item">Company</a>
+          <a class="item">Careers</a>
+          <a routerLink="../profile" class="item" style="color: black" *ngIf="data.isAuthenticated()">Profile</a>
+          <a *ngIf="!data.isAuthenticated()" class="ui item button" style="background-color: #1d5f96;color:white" routerLink="../login">Log in</a>
+          <a *ngIf="data.isAuthenticated()" class="ui item button" style="background-color: #1d5f96;color:white" (click)="logout()">Log out</a>
+          <a *ngIf="!data.isAuthenticated()" class="ui item button" style="background-color:#e21745;color:white" routerLink="../signup">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui text " style="padding: 7%;">
+      <div class="ui stackable grid">
+        <div class="ui center aligned  eight wide column" style="background: url('./assets/images/1.png') center no-repeat;padding-bottom: 2%;">
+          <div class="ui segment" style="background: transparent;border: 0;margin-top: 3%;">
+           <h2 style="text-align: center;color: white">Sharing knowledge is first step to humanity</h2>
+
+            <h4 style="text-align: center;color: white">Spread your skills because ... <br>
+              <span style="text-align: right">Our small life is someone else's big dream</span></h4>
+            <button class="large ui button" style="background-color:#e21745;color: white " *ngIf="!data.isAuthenticated()" routerLink="../login">
+              Login
+            </button>
+            </div>
+
+        </div>
+        <div class="ui center aligned  eight wide column" style="background: url('./assets/images/2.png') center no-repeat">
+          <div class="ui segment" style="background: transparent;border: 0;margin-top: 3%;">
+            <h2 style="text-align: center;color: white">It's the will, Not the skill.</h2>
+
+            <h4 style="text-align: center;color: white">We Spreaders help you to improve skills because ... <br>
+              <span style="text-align: right">In the end we are all just humans, <br> stuck on the idea that success, <br>only succcess matters and there is no success without skills.</span></h4>
+            <button class="large ui button" style="background-color:#1d5f96;color: white " routerLink="../spread">
+              Spreads
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <hr width="50%;">
+  <div style="padding: 4%;">
+  <div class="ui container" >
+    <h1 style="text-align: center;font-family: 'Lobster', cursive;color: #1d5f96"> The Spreads Advantage</h1>
+    <h4 style="text-align: center;font-family: 'Arvo', serif;">
+      We Rise by Lifting Others. When a dream becomes life, Hardwork becomes obsession & Skills become a barrier, We at <b><i>SKILL SPREADS</i></b> help you to destiny.
+      <br> <b>Welcome to Spreads Family.</b>
+    </h4>
+  </div>
+  </div>
+  <div style="padding: 4%;background: url('./assets/images/3.jpg') no-repeat center center;background-size: cover">
+    <div class="ui container center aligned" >
+      <h1 style="text-align: center;font-family: 'Lobster', cursive;color: white">Contact Us</h1>
+      <h4 style="text-align: center;font-family: 'Arvo', serif;color: white">
+        If you have a question, we have an answer. If you need something, we’ll help you. Contact us anytime.
+
+      </h4>
+      <button class="large ui button" style="background-color:#e21745;color: white " routerLink="../login">
+        Company
+      </button>
+    </div>
+  </div>
+</div>

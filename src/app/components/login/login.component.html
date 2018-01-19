@@ -1,0 +1,53 @@
+
+<div class="ui middle aligned center aligned grid" style="padding: 6%;" *ngIf="logincheck()">
+  <div class="ui stacked segment column" id="loginbox">
+
+
+    <h2 class="ui   header">
+    <div style="color:#e21745">
+      Log-in to your account by
+    </div>
+    </h2>
+
+    <div class="ui grid" style="padding: 2% 2%">
+      <div class="sixteen wide column"><button (click)="googlelogin()" class="ui fluid  block submit button"   style="background:#d54b3d;border-radius: 0; color:white;box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.22) inset, 0px 0px 0px 0px rgba(0, 0, 0, 0); "><i class="fa fa-google" aria-hidden="true" style="float: left"></i> Google</button>
+      </div>
+
+    </div>
+
+    <hr style="width: 90%;color: #f8f8f9">
+
+    <h5 class="ui   header">
+
+      <div class="content" style="color:#e21745">
+        OR
+      </div>
+    </h5>
+    <form class="ui large form" [formGroup]="myloginform">
+
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="text" formControlName="email" name="email" placeholder="E-mail address">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input type="password" formControlName="password" name="password" placeholder="Password">
+          </div>
+        </div>
+        <button (click)="login()" class="ui fluid large teal submit button"   style="background-color:#29395a;border-radius:0;">Login</button>
+
+
+      <div class="ui error message"></div>
+
+    </form>
+
+    <div class="ui message">
+      New to us? <a routerLink="../signup">Sign Up</a>
+    </div>
+  </div>
+</div>
+
+<hr width="70%;">

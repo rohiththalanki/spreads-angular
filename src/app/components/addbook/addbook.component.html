@@ -1,0 +1,28 @@
+<div class="ui container" style="padding: 4%" >
+  <h1 style="color: blueviolet">You can add the books here...</h1>
+
+  <form class="ui large form "[formGroup]="addbookform">
+    <div class="field">
+      <label>Book Title</label>
+      <input type="text" formControlName="title" placeholder="The title of the book">
+    </div>
+    <div class="field">
+      <label>Author</label>
+      <input type="text" formControlName="author" placeholder="Full name of the author">
+    </div>
+    <div class="field">
+    <div class="ui labeled input">
+      <div class="ui label">
+        http://
+      </div>
+      <input type="url" formControlName="picture" placeholder="Image url">
+    </div>
+    </div>
+    <div class="field">
+       <label>Description</label>
+      <textarea rows="2" formControlName="about" placeholder="Write short note of this book"></textarea>
+    </div>
+
+    <button [disabled]="addbookform.invalid" class="ui fluid large teal submit button" style="background-color: #1d5f96;border-radius: 0;" (click)="addbook()">Save the Book</button>
+  </form>
+</div>

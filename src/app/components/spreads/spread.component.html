@@ -1,0 +1,59 @@
+<script src="spread.component.ts"></script>
+<div class="ui stackable grid">
+  <div class="four wide column" style="padding: 3%;">
+
+
+    <div class="ui form">
+      <div class="field">
+        <label>Keyword Search</label>
+        <input type="text" name="keyword" placeholder="Keyword Search" [(ngModel)]="search">
+      </div>
+      <button class="ui button" (click)="change()" style="background-color: #1d5f96;color: white">
+        Search
+      </button>
+      <hr style="width:100%;">
+      <button class="ui button " routerLink="../addbook"  style="background-color:#99253f;color: white">
+        Add new Books Here
+      </button>
+    </div>
+
+  </div>
+  <div class="twelve wide column">
+    <h1 style="text-align: center;padding: 2%;color:#1d5f96;"> Choose Your Interest </h1>
+    <hr width="50%;">
+    <div class="ui grid stackable" *ngIf="check()">
+      <div class="three column row">
+        <div class="column" *ngFor="let i of books;let ij = index">
+
+
+          <div class="ui link card" style="margin: 5%;">
+            <div class="image">
+              <img class="images" *ngIf="!i.picture.includes('http')" src="./assets/images/{{i.picture}}">
+              <img class="images" *ngIf="i.picture.includes('http')" src="{{i.picture}}">
+            </div>
+            <div class="content">
+              <div class="header" style="font-size: 80%;">{{i.title}}</div>
+              <div class="meta">
+                <i class="" style="color: blue"></i>followers - {{i.followers}}
+              </div>
+              <!--{{i.type}} icon-->
+              <div class="description">
+                <b>Author - </b> <i>{{i.author}}</i>
+              </div>
+
+            </div>
+            <div class="extra content" style="padding: 0">
+              <button (click)="move(ij)" class="fluid ui button" style="background-color: #1d5f96;color:white">Check
+                Here
+              </button>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<hr width="70%;">

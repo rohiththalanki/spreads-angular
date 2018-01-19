@@ -1,0 +1,51 @@
+
+  <div class="ui middle aligned center aligned grid" style="padding: 3%;" *ngIf="logincheck()">
+    <div class="ui stacked segment column" id="signupbox">
+      <h2 class="ui   header">
+
+        <div class="content" style="color:#e21745">
+         Sign-up to your account
+        </div>
+      </h2>
+      <form class="ui large form" [formGroup]="myloginform">
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="text" formControlName="name"  name="name" placeholder="Name">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="text" formControlName="email"  name="email" placeholder="E-mail address">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input type="password" formControlName="password" name="password" placeholder="Password">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input type="password" formControlName="repassword" name="password" placeholder="Retype your Password">
+          </div>
+        </div>
+        <p style="color:red;text-align: left;" *ngIf="myloginform.get('password').value != myloginform.get('repassword').value">*Passwords didn't match</p>
+        <button [disabled]="myloginform.invalid" class="ui fluid large teal submit button" style="background-color: #1d5f96;border-radius: 0;" (click)="signup()">Sign-Up</button>
+
+        <div style="padding:1% 0%">
+          <button (click)="signupgoogle()" class="ui fluid large teal submit button"   style="background:red;border-radius: 0; color:white;box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.22) inset, 0px 0px 0px 0px rgba(0, 0, 0, 0); ">Google</button>
+        </div>
+        <div class="ui error message"></div>
+
+      </form>
+
+      <div class="ui message">
+        Already with us? <a routerLink="../login">Log-In</a>
+      </div>
+
+  </div>
+</div>
+<hr width="70%">

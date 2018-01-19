@@ -1,0 +1,90 @@
+<div class="ui segment container" >
+  <div class="ui internally celled grid">
+    <div class="row">
+      <div class="three wide column" *ngIf="data">
+        <img class="images" *ngIf="!data.picture.includes('http')" src="./assets/images/{{data.picture}}">
+        <img class="images" *ngIf="data.picture.includes('http')" src="{{data.picture}}">
+      </div>
+      <div class="ten wide column">
+        <h1 style="color: #1d5f96; "><span *ngIf="data">{{data.title}}</span> <div class="ui heart rating" *ngIf="datas.userdet" style="padding-left: 2%;"></div></h1>
+        <span style="color:orangered;float: left; font-size: 150%" *ngIf="data"><b>About:</b></span>
+        <p style="padding: 5%; " *ngIf="data">{{data.about}}</p>
+
+      </div>
+      <div class="three wide column" *ngIf="data">
+        <img class="ui centered small image" style="width: 50%" src="./assets/images/avatar.png">
+        <a (click)="author()" style="padding: 2%"><h4 style="color: #1d5f96;text-align: center">{{data.author}}</h4></a>
+
+        <p>Share :</p>
+        <i class="fa fa-whatsapp fa-2x" style="color:#0dc143;padding: 2%" aria-hidden="true"></i>
+        <i class="fa fa-facebook fa-2x" style="color:#3b5998" aria-hidden="true"></i>
+
+
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="thirteen wide column">
+        <div class="ui grid">
+          <div class="four  wide column" style=""><b>BUY BOOK AT</b></div>
+          <div class="two wide column"><a><i class="fa fa-amazon fa-2x" aria-hidden="true"></i></a></div>
+          <div class="two wide column"><a><i class="fa fa-quora fa-2x" aria-hidden="true"></i></a></div>
+
+
+        </div>
+      </div>
+      <div class="three wide column" *ngIf="data">
+        <a *ngIf="datas.userdet">
+          <button *ngIf="data.followed.indexOf(datas.userdet.email)==-1" (click)="followbook()"
+                  class="ui violet button">Follow Book
+          </button>
+        </a>
+        <a *ngIf="datas.userdet">
+          <button *ngIf="data.followed.indexOf(datas.userdet.email)>-1" class="ui violet button">Followed</button>
+        </a>
+        <a *ngIf="!datas.userdet">
+          <button [disabled]="1" class="ui violet button">Follow</button>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<!--COMMENTS AND REVIEWS-->
+
+<div class="ui segment container" style="margin:2%; background-image: url(./assets/images/bg.png);" *ngIf="data">
+
+
+  <div class="ui comments" *ngIf="datas.userdet">
+    <form class="ui reply form" [formGroup]="commentsform">
+      <div class="field" >
+        <textarea  formControlName="comments" ></textarea>
+      </div>
+      <button [disabled]="commentsform.invalid" class="ui ui blue labeled submit icon button" style="background-color: #1d5f96;border-radius: 0;" (click)="postcomment()"><i class="icon edit"></i> Post</button>
+
+    </form>
+    <h3 class="ui dividing header">Reviews</h3>
+    <div class="comment" *ngFor="let i of data.comment">
+      <a class="avatar">
+        <img src="./assets/images/avatar.png">
+      </a>
+      <div class="content">
+        <a class="author">{{i.name}}</a>
+        <div class="metadata">
+
+        </div>
+        <div class="text">
+         {{i.comments}}
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+<h3 style="text-align: center;font-weight: bold" *ngIf="!datas.userdet"> Please login to post your comments</h3>
+
+</div>
